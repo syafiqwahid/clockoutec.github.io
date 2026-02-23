@@ -1,0 +1,355 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0F0F1A;
+  --surface: #1E1E35;
+  --surface2: #1A1A30;
+  --border: #334155;
+  --primary: #4C4CFF;
+  --accent: #818CF8;
+  --pink: #F472B6;
+  --muted: #64748B;
+  --text: #F8FAFC;
+  --text2: #94A3B8;
+  --purple-light: #A5B4FC;
+  --radius: 14px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────────── */
+.app {
+  width: 100%;
+  max-width: 480px;
+  padding: 36px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+/* ── Input card ───────────────────────────────────────────────────────────── */
+.section-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text2);
+  margin-bottom: 16px;
+}
+
+.time-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+/* ── Spinner ──────────────────────────────────────────────────────────────── */
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.spin-btn {
+  width: 100px;
+  height: 34px;
+  background: #252545;
+  border: none;
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.spin-btn:active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.time-display {
+  width: 100px;
+  height: 68px;
+  background: var(--surface);
+  border: 1.5px solid var(--primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 2px;
+  user-select: none;
+  /* Input-specific resets */
+  font-family: 'Inter', system-ui, sans-serif;
+  text-align: center;
+  outline: none;
+  padding: 0;
+  cursor: text;
+}
+
+.time-display:focus {
+  border-color: var(--accent);
+  background: #26264a;
+}
+
+.colon {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  padding: 0 10px;
+  padding-top: 8px;
+  /* visual centering offset */
+  user-select: none;
+}
+
+/* ── AM / PM ──────────────────────────────────────────────────────────────── */
+.ampm-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 14px;
+}
+
+.ampm-btn {
+  width: 64px;
+  height: 46px;
+  background: var(--surface);
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.ampm-btn.selected {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ── Info card ────────────────────────────────────────────────────────────── */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.info-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.purple {
+  color: var(--purple-light);
+}
+
+.pink {
+  color: var(--pink);
+}
+
+/* ── Calculate button ─────────────────────────────────────────────────────── */
+.calc-btn {
+  width: 100%;
+  height: 54px;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.calc-btn:active {
+  background: #6B6BFF;
+  transform: scale(0.98);
+}
+
+/* ── Result card ──────────────────────────────────────────────────────────── */
+.result-card {
+  border-color: var(--primary);
+  border-width: 1.5px;
+  background: #131328;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  /* Animate in */
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.result-time {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -1px;
+}
+
+.arrow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.arrow-val {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.arrow-icon {
+  font-size: 1.25rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  padding: 0 10px;
+}
+
+.duration-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.early-note {
+  font-size: 0.72rem;
+  color: var(--pink);
+  background: rgba(244, 114, 182, 0.1);
+  border: 1px solid rgba(244, 114, 182, 0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.reset-btn {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reset-btn:active {
+  color: var(--text);
+  border-color: var(--primary);
+}
+
+/* ── Install banner ───────────────────────────────────────────────────────── */
+.install-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+
+.install-banner button {
+  flex-shrink: 0;
+  background: var(--primary);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── Utility ──────────────────────────────────────────────────────────────── */
+.hidden {
+  display: none !important;
+}

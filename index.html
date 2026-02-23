@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F0F1A" />
+  <meta name="description"
+    content="Puasa Clock-Out Calculator — Calculates your clock-out time with 30-min Ramadan early release." />
+  <title>Puasa Clock-Out Calculator</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <h1>🕐 Clock-Out Calculator</h1>
+      <p class="subtitle">Ramadan early release &bull; 30 min before standard</p>
+    </header>
+
+    <!-- Input section -->
+    <section class="card input-card">
+      <label class="section-label">Enter your clock-in time:</label>
+
+      <div class="time-row">
+
+        <!-- Hour -->
+        <div class="spinner">
+          <button class="spin-btn" id="hourUp" aria-label="Increase hour">▲</button>
+          <input class="time-display" id="hourDisplay" type="text" inputmode="numeric" maxlength="2" value="08"
+            autocomplete="off" />
+          <button class="spin-btn" id="hourDown" aria-label="Decrease hour">▼</button>
+        </div>
+
+        <span class="colon">:</span>
+
+        <!-- Minute -->
+        <div class="spinner">
+          <button class="spin-btn" id="minuteUp" aria-label="Increase minute">▲</button>
+          <input class="time-display" id="minuteDisplay" type="text" inputmode="numeric" maxlength="2" value="00"
+            autocomplete="off" />
+          <button class="spin-btn" id="minuteDown" aria-label="Decrease minute">▼</button>
+        </div>
+
+        <!-- AM / PM -->
+        <div class="ampm-group">
+          <button class="ampm-btn selected" id="amBtn">AM</button>
+          <button class="ampm-btn" id="pmBtn">PM</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Info card -->
+    <section class="card info-card">
+      <div class="info-row">
+        <div>
+          <div class="info-label">Standard hours</div>
+          <div class="info-value purple">08:00 AM → 05:00 PM</div>
+        </div>
+        <div style="text-align:right">
+          <div class="info-label">Puasa early release</div>
+          <div class="info-value pink">−30 min &nbsp;(8h 30m)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calculate button -->
+    <button class="calc-btn" id="calcBtn">▶&nbsp;&nbsp;Calculate Clock-Out</button>
+
+    <!-- Result panel -->
+    <section class="card result-card hidden" id="resultPanel">
+      <p class="result-label">Your Clock-Out Time</p>
+      <div class="result-time" id="resultTime">—</div>
+
+      <div class="arrow-row">
+        <div>
+          <div class="info-label">Clock-In</div>
+          <div class="arrow-val purple" id="arrowIn">—</div>
+        </div>
+        <span class="arrow-icon">→</span>
+        <div style="text-align:right">
+          <div class="info-label">Clock-Out</div>
+          <div class="arrow-val pink" id="arrowOut">—</div>
+        </div>
+      </div>
+
+      <p class="duration-note">Work duration: 8h 30m &nbsp;(incl. 30 min early release)</p>
+
+      <p class="early-note" id="earlyNote" style="display:none"></p>
+
+      <button class="reset-btn" id="resetBtn">↺ &nbsp;Reset</button>
+    </section>
+
+    <!-- Install banner (shown when installable) -->
+    <div class="install-banner hidden" id="installBanner">
+      <span>📲 Add to Home Screen for offline use</span>
+      <button id="installBtn">Install</button>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
