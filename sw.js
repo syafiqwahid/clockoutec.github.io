@@ -1,4 +1,4 @@
-const CACHE = 'puasa-clockin-v2';
+const CACHE = 'puasa-clockin-v3';
 const ASSETS = [
     './',
     './index.html',

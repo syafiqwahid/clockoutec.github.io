@@ -96,7 +96,47 @@
 
       <p class="early-note" id="earlyNote" style="display:none"></p>
 
+      <!-- Action buttons row -->
+      <div class="action-row">
+        <button class="save-btn" id="saveBtn">💾 Save Result</button>
+        <button class="alarm-btn" id="setAlarmBtn">🔔 Set Alarm</button>
+      </div>
+
+      <!-- Alarm status -->
+      <div class="alarm-status hidden" id="alarmStatus">
+        <div class="alarm-status-inner">
+          <span class="alarm-icon-spin">⏰</span>
+          <div>
+            <div class="alarm-label">Alarm set for <strong id="alarmTimeLabel">—</strong></div>
+            <div class="alarm-countdown" id="alarmCountdown">Calculating…</div>
+          </div>
+          <button class="cancel-alarm-btn" id="cancelAlarmBtn" title="Cancel alarm">✕</button>
+        </div>
+      </div>
+
       <button class="reset-btn" id="resetBtn">↺ &nbsp;Reset</button>
+    </section>
+
+    <!-- Save toast -->
+    <div class="toast hidden" id="saveToast">✅ Result saved!</div>
+
+    <!-- Alarm fired overlay -->
+    <div class="alarm-overlay hidden" id="alarmOverlay">
+      <div class="alarm-box">
+        <div class="alarm-ring">🔔</div>
+        <h2>Time to Clock-Out!</h2>
+        <p id="alarmMsg">It's your clock-out time.</p>
+        <button class="dismiss-btn" id="dismissAlarmBtn">Dismiss</button>
+      </div>
+    </div>
+
+    <!-- Saved Results section -->
+    <section class="card history-card" id="historySection" style="display:none">
+      <div class="history-header">
+        <span class="section-label" style="margin-bottom:0">📋 Saved Results</span>
+        <button class="clear-history-btn" id="clearHistoryBtn">Clear All</button>
+      </div>
+      <ul class="history-list" id="historyList"></ul>
     </section>
 
     <!-- Install banner (shown when installable) -->
